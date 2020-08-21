@@ -8,7 +8,7 @@ const ProjectDetails = () => {
         <div className='container section project-details'>
             <div className="card z-depth-0">
                 <div className="card-content">
-                    <span className="card-title">Project Title: {id}</span>
+                    <span className="card-title">Project Title - {id}</span>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, unde consequuntur aliquam suscipit optio tempora?</p>
                 </div>
                 <div className="card-action grey lighten-4 grey-text">
