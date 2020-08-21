@@ -1,0 +1,36 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(./img/schwanengesang-tk8zvCmHFTg-unsplash.gif) no-repeat;
+    background-size: 100%;
+    background-position: top;
+    background-color: rgb(181, 147, 155);
+    min-height: 100%;
+}
+
+form {
+    padding: 20px;
+    margin-top: 60px;
+    background: rgb(244, 224, 230);
+}
+
+form button, form h5 {
+    margin: 20px 0;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-color: #ec407a;
+    box-shadow: none;
+}
+
+.nav-wrapper {
+    background: rgb(124, 89, 99);
+}
