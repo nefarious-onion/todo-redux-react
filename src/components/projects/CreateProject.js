@@ -1,13 +1,11 @@
 import React, { useState, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useFirestore, useFirestoreConnect} from 'react-redux-firebase';
+import { useDispatch } from 'react-redux';
+import { useFirestore } from 'react-redux-firebase';
 //store
 import { createProject } from '../../store/actions/projectActions';
 
 const CreateProject = (props) => {
     const firestore = useFirestore();
-    useFirestoreConnect('projects');
-    const projects = useSelector(state => state.firestore.projects)
     const dispatch = useDispatch();
     const createNew = useCallback( project => 
         dispatch(createProject(
