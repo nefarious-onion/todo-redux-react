@@ -1,11 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
+import {  useFirestoreConnect } from 'react-redux-firebase';
+//selectors
+import { getProjects } from '../../store/selectors/projectSelectors';
 //components
 import Notifications from './Notifications';
 import ProjectList from '../projects/ProjectList';
 
 
-const Dashboard = ({ projects }) => {
+const Dashboard = () => {
+    useFirestoreConnect('projects');
+    const projects = useSelector(getProjects);
     
     return (
         <div className='dashboard container'>
@@ -20,10 +25,5 @@ const Dashboard = ({ projects }) => {
         </div>
     );
 }
-const mapStateToProps = state => {
-    return {
-        projects: state.project.projects
-    }
-}
 
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;
