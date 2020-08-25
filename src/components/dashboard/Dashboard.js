@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {  useFirestoreConnect } from 'react-redux-firebase';
 //selectors
-import { getProjects } from '../../store/selectors/projectSelectors';
+import { getProjects } from '../../projects/projects.selector';
 //components
-import Notifications from './Notifications';
-import ProjectList from '../projects/ProjectList';
+import Notifications from '../Notifications/Notifications';
+import ProjectList from '../ProjectList/ProjectList';
 
 
 const Dashboard = () => {

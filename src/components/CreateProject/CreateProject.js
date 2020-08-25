@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useFirestore } from 'react-redux-firebase';
 //actions
-import { createProject } from '../../store/actions/projectActions';
+import { createProject } from '../../projects/projects.action';
 
 const CreateProject = (props) => {
     const firestore = useFirestore();

@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
-import { getProject } from '../../store/selectors/projectSelectors';
 //selectors
+import { getProject } from '../../projects/projects.selector';
 
 const ProjectDetails = () => {
     const { id } = useParams();
@@ -16,7 +16,7 @@ const ProjectDetails = () => {
                 <div className="card z-depth-0">
                     <div className="card-content">
                         <span className="card-title"> {project.title}</span>
-                        <p>{project.title}</p>
+                        <p>{project.content}</p>
                     </div>
                     <div className="card-action grey lighten-4 grey-text">
                         <div> Posted by {project.authorFirstName} {project.authorLastName}</div>
