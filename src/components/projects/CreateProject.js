@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useFirestore, useFirestoreConnect} from 'react-redux-firebase';
 //store
 import { createProject } from '../../store/actions/projectActions';
 
-const CreateProject = ({ createProject }) => {
+const CreateProject = (props) => {
+    const firestore = useFirestore();
+    useFirestoreConnect('projects');
+    const projects = useSelector(state => state.firestore.projects)
+    const dispatch = useDispatch();
+    const createNew = useCallback( project => 
+        dispatch(createProject(
+            { firestore }, project)
+        ), [ dispatch, firestore ]
+    );
+
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     
@@ -14,7 +25,7 @@ const CreateProject = ({ createProject }) => {
             content
         }
         console.log(project);
-        createProject(project)
+        createNew(project)
     }
 
     return (
@@ -43,10 +54,11 @@ const CreateProject = ({ createProject }) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        createProject: (project) => dispatch(createProject(project))
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         createProject: (project) => dispatch(createProject(project))
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(CreateProject);
+//export default connect(null, mapDispatchToProps)(CreateProject);
+export default CreateProject;
