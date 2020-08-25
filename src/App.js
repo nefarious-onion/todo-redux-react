@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 //components
 import Navbar from './components/layout/Navbar';
-import Dashboard from './components/dashboard/Dashboard';
-import ProjectDetails from './components/projects/ProjectDetails';
-import SignIn from './components/auth/SignIn';
-import SignUp from './components/auth/SignUp';
-import CreateProject from './components/projects/CreateProject';
+import Dashboard from './components/Dashboard/Dashboard';
+import ProjectDetails from './components/ProjectDetails/ProjectDetails';
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
+import CreateProject from './components/CreateProject/CreateProject';
 
 
 const App = () => {
