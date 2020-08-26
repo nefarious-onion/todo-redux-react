@@ -1,3 +1,6 @@
+export const CREATE_PROJECT = 'CREATE_PROJECT';
+export const CREATE_PROJECT_ERROR = 'CREATE_PROJECT_ERROR'
+
 export const createProject = ({ firestore }, project) => {
     console.log(firestore);
 
@@ -13,10 +16,10 @@ export const createProject = ({ firestore }, project) => {
                 createdAt: new Date()
             })
             .then(() => {
-                dispatch({ type: 'CREATE_PROJECT', project })
+                dispatch({ type: CREATE_PROJECT, project })
             })
             .catch(error => {
-                dispatch({ type: 'CREATE_PROJECT_ERROR', error })
+                dispatch({ type: CREATE_PROJECT_ERROR, error })
             })
     }
 }

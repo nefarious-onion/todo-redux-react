@@ -1,3 +1,5 @@
+import { CREATE_PROJECT, CREATE_PROJECT_ERROR } from './projects.action';
+
 const initState = {
     projects: [
         { id: '1', title: 'write song lyrics', content: 'nihkeet naiset tuli kaupunkiin' },
@@ -8,10 +10,10 @@ const initState = {
 
 const projectReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'CREATE_PROJECT':
+        case CREATE_PROJECT:
                 console.log('project created', action.project);
                 return state;
-        case 'CREATE_PROJECT_ERROR':
+        case CREATE_PROJECT_ERROR:
             console.log('create project error', action.error);
             return state
         default:
