@@ -1,6 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { Redirect } from 'react-router-dom';
+//redux
+import { useSelector, useDispatch } from 'react-redux';
+import { useFirebase, useFirestore } from 'react-redux-firebase';
+
+//selectors
+import { getAuth, getAuthError } from '../../auth/auth.selector';
+//actions
+import { signUp } from '../../auth/auth.action';
 
 const SignIn = () => {
+    const firebase = useFirebase();
+    const firestore = useFirestore();
+    const dispatch = useDispatch();
+    const newSignUp = useCallback( newUser => 
+        dispatch(signUp(
+            { firestore, firebase}, newUser)
+            ), [ dispatch, firebase, firestore ]
+    );
+    const auth = useSelector(getAuth);
+    const authError = useSelector(getAuthError)
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstname, setFirstname] = useState('');
@@ -8,12 +28,17 @@ const SignIn = () => {
     
     const onSubmit = event => {
         event.preventDefault();
-        console.log(email, password);
-        console.log(firstname, lastname);
-        
-        
+        const newUser = {
+            email,
+            password,
+            firstname,
+            lastname
+        }
+
+        newSignUp(newUser);
     }
 
+    if (auth.uid) return <Redirect to='/' />
     return (
         <div className='container'>
             <form className='white' onSubmit={onSubmit}>
@@ -56,6 +81,12 @@ const SignIn = () => {
                 </div>
                 <div className="input-field">
                     <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+                    <div className="red-text center">
+                        {authError 
+                            ? <p>{authError}</p>
+                            : null
+                        }
+                    </div>
                 </div>
             </form>
             
