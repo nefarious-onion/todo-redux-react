@@ -1,14 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
+//redux
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 //selectors
 import { getProject } from '../../projects/projects.selector';
+import { getAuth } from '../../auth/auth.selector';
 
 const ProjectDetails = () => {
     const { id } = useParams();
     useFirestoreConnect('projects');
     const project = useSelector(getProject(id));
+
+    const auth = useSelector(getAuth);
+    if (!auth.uid) return <Redirect to='/signin' />
 
     if (project) {
         return (
