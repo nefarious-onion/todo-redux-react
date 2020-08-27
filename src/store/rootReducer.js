@@ -9,8 +9,8 @@ import projectReducer from '../projects/projects.reducer';
 const rootReducer = combineReducers({
     auth: authReducer,
     project: projectReducer,
-    firebase: firebaseReducer,
-    firestore: firestoreReducer,
+    firebase: firebaseReducer, //authentication from firebase
+    firestore: firestoreReducer, //database
 });
 
 export default rootReducer;
