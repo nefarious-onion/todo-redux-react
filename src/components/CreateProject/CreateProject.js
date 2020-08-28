@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 //redux
 import { useDispatch, useSelector } from 'react-redux';
 import { useFirestore } from 'react-redux-firebase';
@@ -11,6 +12,7 @@ import { Redirect } from 'react-router-dom';
 const CreateProject = (props) => {
     const firestore = useFirestore();
     const dispatch = useDispatch();
+    const history = useHistory();
     const createNew = useCallback( project => 
         dispatch(createProject(
             { firestore }, project)
@@ -28,7 +30,8 @@ const CreateProject = (props) => {
             content
         }
         console.log(project);
-        createNew(project)
+        createNew(project);
+        history.push('/');
     }
 
     if (!auth.uid) return <Redirect to='/signin' />
