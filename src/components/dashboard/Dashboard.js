@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 //redux
 import { useSelector } from 'react-redux';
-import {  useFirestoreConnect } from 'react-redux-firebase';
+import { useFirestoreConnect } from 'react-redux-firebase';
 //selectors
 import { getProjects } from '../../projects/projects.selector';
 import { getAuth } from '../../auth/auth.selector';
@@ -12,12 +12,18 @@ import ProjectList from '../ProjectList/ProjectList';
 
 
 const Dashboard = () => {
-    useFirestoreConnect('projects');
+    useFirestoreConnect([
+        {  
+            collection: 'projects',
+            orderBy: ['createdAt', 'desc']
+        }
+    ]);
+
     const projects = useSelector(getProjects);
     const auth = useSelector(getAuth);
 
     if (!auth.uid) return <Redirect to='/signin' />
-    
+
     return (
         <div className='dashboard container'>
             <div className="row">
@@ -25,7 +31,7 @@ const Dashboard = () => {
                     <ProjectList projects={projects} />
                 </div>
                 <div className="col s12 m5 offset-m1">
-                    <Notifications/>
+                    <Notifications />
                 </div>
             </div>
         </div>
