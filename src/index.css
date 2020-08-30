@@ -5,11 +5,11 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    background: url(./img/schwanengesang-tk8zvCmHFTg-unsplash.gif) no-repeat;
+    font-family: 'Ubuntu', sans-serif;
+    background: url(https://images.unsplash.com/photo-1598637843484-b73f3597ed95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80);
     background-size: 100%;
     background-position: top;
-    background-color: rgb(181, 147, 155);
+    background-color: #212121;
     min-height: 100%;
 }
 
@@ -27,10 +27,26 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    border-color: #ec407a;
+    border-color: #e65100;
     box-shadow: none;
 }
 
-.nav-wrapper {
-    background: rgb(124, 89, 99);
+.logo-font {
+    font-family: 'Russo One', sans-serif;
+}
+
+/* Project-Summary */
+.project-date {
+    color: #9e9e9e;
+}
+.project-summary:hover {
+    background: #ff8a65 ;
+}
+.project-summary:hover * {
+    color: black;
+}
+
+/* Project-Details */
+#detailButton {
+    margin-left: 1rem;
 }
