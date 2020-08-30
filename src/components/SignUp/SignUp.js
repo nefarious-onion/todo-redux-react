@@ -80,7 +80,7 @@ const SignIn = () => {
                     />
                 </div>
                 <div className="input-field">
-                    <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+                    <button className="btn  deep-orange lighten-1 z-depth-0">Sign Up</button>
                     <div className="red-text center">
                         {authError 
                             ? <p>{authError}</p>
