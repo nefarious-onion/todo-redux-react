@@ -1,8 +1,11 @@
 export const CREATE_PROJECT = 'CREATE_PROJECT';
 export const CREATE_PROJECT_ERROR = 'CREATE_PROJECT_ERROR'
+export const DELETE_PROJECT = 'DELETE_PROJECT';
+export const DELETE_PROJECT_ERROR = 'DELETE_PROJECT_ERROR';
+export const EDIT_PROJECT = 'EDIT_PROJECT';
+export const EDIT_PROJECT_ERROR = 'EDIT_PROJECT_ERROR';
 
 export const createProject = ({ firestore }, project) => {
-    console.log(firestore);
 
     return (dispatch, getState) => {
         const profile = getState().firebase.profile;
@@ -22,6 +25,23 @@ export const createProject = ({ firestore }, project) => {
             })
             .catch(error => {
                 dispatch({ type: CREATE_PROJECT_ERROR, error })
+            })
+    }
+}
+
+export const editProject = ({ firestore }, editedProject, projectId) => {
+    return (dispatch, getState) => {
+        firestore
+            .collection('projects')
+            .doc(projectId)
+            .update({
+                ...editedProject
+            })
+            .then(()=> {
+                dispatch({ type: EDIT_PROJECT, editedProject })
+            })
+            .catch(error => {
+                dispatch({ type: EDIT_PROJECT_ERROR, error})
             })
     }
 }
