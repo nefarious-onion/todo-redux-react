@@ -1,35 +1,55 @@
-import React from 'react';
-import { useParams, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, Redirect, Link } from 'react-router-dom';
 import moment from 'moment';
 //redux
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
+
 //selectors
 import { getProject } from '../../projects/projects.selector';
 import { getAuth } from '../../auth/auth.selector';
+//components
+import EditProjectForm from '../EditProjectForm/EditProjectForm';
+import ProjectInfo from '../ProjectInfo/ProjectInfo';
+
 
 const ProjectDetails = () => {
+    const auth = useSelector(getAuth);
     const { id } = useParams();
     useFirestoreConnect('projects');
     const project = useSelector(getProject(id));
+    const [showEdit, setShowEdit] = useState(false);
 
-    const auth = useSelector(getAuth);
+    const onDelete = () => {
+
+    }
+
+    const onShowEdit = () => setShowEdit(true);
+    const onHideEdit = () => setShowEdit(false);
+    
     if (!auth.uid) return <Redirect to='/signin' />
-
     if (project) {
         const date = moment(project.createdAt.toDate()).calendar();
         return (
             <div className='container section project-details'>
                 <div className="card z-depth-0">
-                    <div className="card-content">
-                        <span className="card-title"> {project.title}</span>
-                        <p>{project.content}</p>
-                    </div>
-                    <div className="card-action grey lighten-4 grey-text">
-                        <div> Posted by {project.authorFirstName} {project.authorLastName}</div>
-                        <div>{date}</div>
-                    </div>
+                    {showEdit
+                        ? <EditProjectForm
+                            project={project}
+                            onHideEdit={onHideEdit}
+                            projectId={id}
+                        />
+                        : <ProjectInfo
+                            project={project}
+                            date={date}
+                            onShowEdit={onShowEdit}
+                            onDelete={onDelete}
+                        />
+                    }
                 </div>
+                <Link to='/' className='btn teal lighten-3 black-text'> 
+                    Return to All projects
+                </Link>
             </div>
         )
     }
