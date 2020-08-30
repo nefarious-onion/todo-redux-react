@@ -20,9 +20,9 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="nav-wrapper darken-3">
+            <nav className="nav-wrapper transparent z-depth-0">
                 <div className="container">
-                    <Link to='/' className='brand-logo'>react redux todo</Link>
+                    <Link to='/' className='brand-logo logo-font deep-orange-text text-lighten-2'>react redux todo</Link>
                     { links }
                 </div>
             </nav>
