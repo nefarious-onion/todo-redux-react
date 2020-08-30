@@ -1,68 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Redux Todo
 
-## Available Scripts
+Application is deployed at Firebase Hosting https://todo-react-redux-563b5.web.a
 
-In the project directory, you can run:
+Data is stored to Cloud Firestore.
 
-### `npm start`
+Application uses Firebase authentication.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Application state is handled by Redux with react-redux- and react-redux-firebase-libraries.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Application is based on the tutorial by NetNinja https://youtu.be/Oi4v5uxTY5o
+Biggest changes: 
+- I have changed the original app from class components to functional components.
+- I have exclusively used hooks with Firestore, Firebase and Redux.
+- I completely refactored the file structure to my liking.
 
-### `npm test`
+Issues:
+- Edit projects does not work. It has an issue with hooks and I have yet to find a solution.
+- I did not have time to add delete and done functionalities yet even though the buttons for them exists
+- Notifications do not work. They were supposed to be done with cloud functions but that requires paid plan to Firebase and I have not yet decided what to do with that. Currently I have the free plan only so Notifications do not exist.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Yet To Come:
+- Edit Profile
+- View own projects
+- Add more content to projects i.e. checkbox-list
+- Comment projects
