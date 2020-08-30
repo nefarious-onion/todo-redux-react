@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 //redux
 import { useFirebase } from 'react-redux-firebase';
 import { useDispatch } from 'react-redux';
@@ -19,8 +19,8 @@ const SignedInLinks = ({ profile }) => {
     return (
         <ul className='right'>
             <li><NavLink to='/create'>New Project</NavLink></li>
-            <li><a onClick={logOut} to='/'>Log Out</a></li>
-            <li><NavLink to='/' className='btn btn-floating pink lighten-1'>{profile.initials}</NavLink></li>
+            <li><Link onClick={logOut} to='/'>Log Out</Link></li>
+            <li><NavLink to='/' className='btn btn-floating teal lighten-3 black-text'>{profile.initials}</NavLink></li>
         </ul>
     );
 }
