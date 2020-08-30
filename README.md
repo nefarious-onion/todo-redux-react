@@ -2,7 +2,7 @@
 
 Application is deployed at Firebase Hosting https://todo-react-redux-563b5.web.a
 
-Data is stored to Cloud Firestore.
+Data is stored to Cloud Firestore with security rules that allow read and write only for registered users.
 
 Application uses Firebase authentication.
 
