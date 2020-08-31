@@ -18,7 +18,8 @@ export const createProject = ({ firestore }, project) => {
                 authorFirstName: profile.firstname,
                 authorLastName: profile.lastname,
                 authorId: authorId,
-                createdAt: new Date()
+                createdAt: new Date(),
+                completed: false
             })
             .then(() => {
                 dispatch({ type: CREATE_PROJECT, project })
