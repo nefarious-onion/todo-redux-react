@@ -18,9 +18,11 @@ Issues:
 - Edit projects does not work. It has an issue with hooks and I have yet to find a solution.
 - I did not have time to add delete and done functionalities yet even though the buttons for them exists
 - Notifications do not work. They were supposed to be done with cloud functions but that requires paid plan to Firebase and I have not yet decided what to do with that. Currently I have the free plan only so Notifications do not exist.
+- the code is not following the principles of Container Components and Presentational Components
 
 Yet To Come:
 - Edit Profile
 - View own projects
 - Add more content to projects i.e. checkbox-list
 - Comment projects
+- Refactor code to use Container Components
