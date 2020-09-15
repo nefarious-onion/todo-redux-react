@@ -4,6 +4,8 @@ export const DELETE_PROJECT = 'DELETE_PROJECT';
 export const DELETE_PROJECT_ERROR = 'DELETE_PROJECT_ERROR';
 export const EDIT_PROJECT = 'EDIT_PROJECT';
 export const EDIT_PROJECT_ERROR = 'EDIT_PROJECT_ERROR';
+export const PROJECT_DONE = 'PROJECT_DONE';
+export const PROJECT_DONE_ERROR = 'PROJECT_DONE_ERROR';
 
 export const createProject = ({ firestore }, project) => {
 
@@ -36,7 +38,8 @@ export const editProject = ({ firestore }, editedProject, projectId) => {
             .collection('projects')
             .doc(projectId)
             .update({
-                ...editedProject
+                ...editedProject,
+                editedAt: new Date()
             })
             .then(()=> {
                 dispatch({ type: EDIT_PROJECT, editedProject })
@@ -46,3 +49,7 @@ export const editProject = ({ firestore }, editedProject, projectId) => {
             })
     }
 }
+
+// const finishProject = () => {
+    
+// }

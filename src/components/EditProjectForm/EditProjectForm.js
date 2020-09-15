@@ -1,19 +1,24 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 //redux
-import {  useDispatch } from 'react-redux';
-import { useFirestore, useFirestoreConnect } from 'react-redux-firebase';
+import { useFirestore } from 'react-redux-firebase';
+import { useDispatch } from 'react-redux';
 //actions
 import { editProject } from '../../projects/projects.action';
 
 const EditProjectForm = ({ project, onHideEdit, projectId }) => {
     const firestore = useFirestore();
-    const dispatch = useDispatch;
-    //useFirestoreConnect('projects');
-    const updateProject = useCallback(editedProject =>
-        dispatch(editProject(
-            { firestore }, editedProject, projectId)
-        ), [ dispatch, firestore, projectId ]
-    );
+    const dispatch = useDispatch();
+    // const updateProject = useCallback(editedProject =>
+    //     store.dispatch(editProject(
+    //         { firestore }, editedProject, projectId)
+    //     ), [  firestore, projectId ]
+    // );
+    // const updateProject = useCallback(editedProject =>
+    //     dispatch(editProject(
+    //         { firestore }, editedProject, projectId)
+    //     ), [  dispatch, firestore, projectId ]
+    // );
+    
 
     const [title, setTitle] = useState(project.title);
     const [content, setContent] = useState(project.content);
@@ -29,6 +34,7 @@ const EditProjectForm = ({ project, onHideEdit, projectId }) => {
         console.log(editedProject);
         onHideEdit();
         //updateProject(editedProject);
+        dispatch(editProject({ firestore }, editedProject, projectId));
     }
 
     return (
