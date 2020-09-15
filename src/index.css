@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
-    background: url(https://images.unsplash.com/photo-1598637843484-b73f3597ed95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80);
+    background: url(https://images.unsplash.com/photo-1598637843484-b73f3597ed95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80) repeat;
     background-size: 100%;
     background-position: top;
     background-color: #212121;
@@ -45,7 +45,9 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .project-summary:hover * {
     color: black;
 }
-
+#summaryButton {
+    margin: 2rem;
+}
 /* Project-Details */
 #detailButton {
     margin-left: 1rem;
